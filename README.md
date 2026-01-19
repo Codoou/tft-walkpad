@@ -1,5 +1,28 @@
 # TFT → Treadmill Controller 🏃‍♂️🎮
 
+> **Live gameplay-driven treadmill control using computer vision**
+>
+> *Screenshots below show the real-time sidebar detection, HP tracking, and treadmill state overlay.*
+
+## Screenshots
+
+_Add screenshots here once pushed to Git._
+
+```text
+docs/screenshots/
+├── sidebar_match.png        # Sidebar with match box + HP ROI
+├── sidebar_panel.png        # Extended sidebar with stats panel
+├── treadmill_overlay.png   # HP → speed/incline mapping
+```
+
+Example usage:
+```md
+![Sidebar Match](docs/screenshots/sidebar_match.png)
+![Sidebar Stats Panel](docs/screenshots/sidebar_panel.png)
+```
+
+---
+
 This project connects **Teamfight Tactics gameplay** to a **walking treadmill** in real time.
 
 Your TFT performance directly affects treadmill difficulty:
@@ -46,81 +69,6 @@ Design choices reflect these constraints:
 - Majority-vote smoothing to prevent OCR spikes
 
 This intentionally favors **stability and safety** over instant reaction.
-
----
-
-## Features
-
-### Robust HP Detection
-- Template matching on your TFT row
-- Digit-only OCR for HP
-- Edge-based matching for late-game stability
-- Lock + hysteresis to avoid losing your row
-
-### Signal Smoothing
-- Sliding window of recent HP reads
-- Requires majority agreement before updating
-- Prevents treadmill spikes from bad OCR frames
-
-### Treadmill Safety
-- Speed and incline clamps
-- Rate-limited commands
-- Gradual ramping
-- Safe fallback behavior when HP is unknown
-
-### Debug UI
-- Live sidebar preview
-- Match box (green)
-- HP ROI box (blue)
-- Bottom stats panel with:
-  - Raw HP
-  - Stable HP
-  - Vote state
-  - Treadmill state
-  - Target values
-  - History
-
----
-
-## Requirements
-
-### Hardware
-- macOS
-- iPad running Teamfight Tactics
-- USB cable (iPad → Mac)
-- Walking treadmill / walkpad
-
-### Software
-- Python 3.9+
-- QuickTime Player
-- Tesseract OCR
-
-### Python Dependencies
-```
-pip install opencv-python numpy pytesseract mss requests pyobjc-framework-Quartz
-```
-
----
-
-## macOS Permissions
-
-You **must** enable Screen Recording:
-```
-System Settings → Privacy & Security → Screen Recording
-→ enable Terminal / Python
-```
-
----
-
-## Running
-
-1. Mirror your iPad to QuickTime (Movie Recording)
-2. Ensure the TFT sidebar is visible
-3. Start your treadmill API locally
-4. Run:
-```
-python tft_treadmill_sidebar_panel_v2.py
-```
 
 ---
 
