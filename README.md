@@ -17,7 +17,7 @@ docs/screenshots/
 
 Example usage:
 ```md
-![Sidebar Match](docs/screenshots/sidebar_match.png)
+![Sidebar Match](docs/screenshots/treadmill_integration.png.png)
 ![Sidebar Stats Panel](docs/screenshots/sidebar_panel.png)
 ```
 
