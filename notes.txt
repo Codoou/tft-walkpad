@@ -1,0 +1,5 @@
+# Start Treadmill Connection:
+uvicorn server:app --host 127.0.0.1 --port 8765
+
+# Start IOT Receiver/Controller Connection:
+uvicorn autopacer_api_rebuilt_v3_fixed:app --host 0.0.0.0 --port 8766
